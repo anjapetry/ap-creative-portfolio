@@ -8,8 +8,7 @@ const config: Config = {
         "./src/slices/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
-        extend: {
-        },
+        extend: {},
     },
     plugins: [],
 };
