@@ -8,7 +8,7 @@ import { gsap } from "gsap";
 
 export default function Shapes() {
     return (
-        <div className='row-span-1 row-start-1 -mt-9 aspect-square md:col-span-1 md:col-start-2 md:mt-0'>
+        <div className='row-span-1 row-start-1 -mt-9 aspect-square  md:col-span-1 md:col-start-2 md:mt-0'>
             <Canvas
                 className='z-0'
                 shadows
@@ -25,7 +25,7 @@ export default function Shapes() {
                         blur={1}
                         far={9}
                     />
-                    <Environment preset='studio' />
+                    <Environment preset='sunset' />
                 </Suspense>
             </Canvas>
         </div>
@@ -47,12 +47,12 @@ function Geometries() {
         {
             position: [-1.4, 2, -4],
             r: 0.6,
-            geometry: new THREE.DodecahedronGeometry(1.5), // Fussball :)
+            geometry: new THREE.DodecahedronGeometry(1.5), // Soccer ball
         },
         {
-            position: [-2, 0.5, 2],
+            position: [-2, 0.4, 2],
             r: 0.3,
-            geometry: new THREE.SphereGeometry(1.5, 22, 16), // Sphere
+            geometry: new THREE.SphereGeometry(1.5, 32, 16), // Sphere
         },
         {
             position: [-0.8, -0.75, 5],
@@ -66,18 +66,26 @@ function Geometries() {
         },
     ];
 
+    const soundEffects: HTMLAudioElement[] = [
+        new Audio("/sounds/knock1.ogg"),
+        new Audio("/sounds/knock2.ogg"),
+        new Audio("/sounds/knock3.ogg"),
+        new Audio("/sounds/knock4.ogg"),
+        new Audio("/sounds/knock5.ogg"),
+    ];
+
     const materials = [
         new THREE.MeshNormalMaterial(),
         new THREE.MeshStandardMaterial({ color: 0x2ecc71, roughness: 0 }),
         new THREE.MeshStandardMaterial({ color: 0xf1c40f, roughness: 0.4 }),
         new THREE.MeshStandardMaterial({ color: 0xe74c3c, roughness: 0.1 }),
-        new THREE.MeshStandardMaterial({ color: 0x8e44ad, roughness: 0.1 }),
-        new THREE.MeshStandardMaterial({ color: 0x1abc9c, roughness: 0.1 }),
         new THREE.MeshStandardMaterial({
             color: 0xff7f50,
             roughness: 0.1,
             metalness: 0.2,
         }),
+        new THREE.MeshStandardMaterial({ color: 0x8e44ad, roughness: 0.1 }),
+        new THREE.MeshStandardMaterial({ color: 0x1abc9c, roughness: 0.1 }),
         new THREE.MeshStandardMaterial({
             roughness: 0,
             metalness: 0.5,
@@ -90,18 +98,19 @@ function Geometries() {
         }),
     ];
 
-    // Pass to Geometry
     return geometries.map(({ position, r, geometry }) => (
         <Geometry
-            key={JSON.stringify(position)}
+            key={JSON.stringify(position)} // Unique key
             position={position.map((p) => p * 2)}
             geometry={geometry}
+            soundEffects={soundEffects}
             materials={materials}
             r={r}
         />
     ));
 }
-function Geometry({ r, position, geometry, materials }: any) {
+
+function Geometry({ r, position, geometry, soundEffects, materials }) {
     const meshRef = useRef();
     const [visible, setVisible] = useState(false);
 
@@ -111,15 +120,17 @@ function Geometry({ r, position, geometry, materials }: any) {
         return gsap.utils.random(materials);
     }
 
-    function handleClick(e) {
+    function handleClick(e: any) {
         const mesh = e.object;
+
+        gsap.utils.random(soundEffects).play();
 
         gsap.to(mesh.rotation, {
             x: `+=${gsap.utils.random(0, 2)}`,
             y: `+=${gsap.utils.random(0, 2)}`,
             z: `+=${gsap.utils.random(0, 2)}`,
             duration: 1.3,
-            ease: "elastic.out(1, 0.3)",
+            ease: "elastic.out(1,0.3)",
             yoyo: true,
         });
 
@@ -146,7 +157,7 @@ function Geometry({ r, position, geometry, materials }: any) {
                 delay: gsap.utils.random(0, 0.5),
             });
         });
-        return () => ctx.revert(); // Context cleanup
+        return () => ctx.revert();
     }, []);
 
     return (
@@ -158,12 +169,12 @@ function Geometry({ r, position, geometry, materials }: any) {
             >
                 <mesh
                     geometry={geometry}
-                    material={startingMaterial}
                     onClick={handleClick}
                     onPointerOver={handlePointerOver}
                     onPointerOut={handlePointerOut}
                     visible={visible}
-                />
+                    material={startingMaterial}
+                ></mesh>
             </Float>
         </group>
     );
