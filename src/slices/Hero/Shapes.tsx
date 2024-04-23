@@ -40,9 +40,9 @@ function Geometries() {
             geometry: new THREE.IcosahedronGeometry(3), // Gem
         },
         {
-            position: [1, -0.75, 4],
-            r: 0.4,
-            geometry: new THREE.CapsuleGeometry(0.5, 1.6, 2, 16), // Pill
+            position: [1.3, -0.75, 4],
+            r: 0.6,
+            geometry: new THREE.TorusKnotGeometry(1, 0.4, 64, 8), // Knot
         },
         {
             position: [-1.4, 2, -4],
