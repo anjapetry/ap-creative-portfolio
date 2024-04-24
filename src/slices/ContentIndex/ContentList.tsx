@@ -5,7 +5,7 @@ import React from "react";
 import { MdArrowOutward } from "react-icons/md";
 import Link from "next/link";
 
-type ContentListProps = {
+export type ContentListProps = {
     items: Content.BlogPostDocument[] | Content.ProjectDocument[];
     contentType: Content.ContentIndexSlice["primary"]["content_type"];
     fallbackItemImage: Content.ContentIndexSlice["primary"]["fallback_item_image"];
@@ -30,16 +30,19 @@ export default function ContentList({
                             aria-label={item.data.title || ""}
                         >
                             <div className='flex flex-col'>
-                                <span className='text-3xl font-bold'>
+                                <span className='text-3xl font-bold mb-6'>
                                     {item.data.title}
                                 </span>
-                                {/* <div className='flex gap-3 text-amber-300 text-lg font-bold'>
-                                    {items.tags &&
-                                        items.tags.map((tag, index) => (
-                                            <span key={index}>{tag}</span>
-                                        ))}
+                                <div className='flex gap-3 text-amber-300 text-lg font-bold '>
+                                    {item.tags.map((tag, index) => (
+                                        <span
+                                            className='border border-stone-600 rounded-lg p-2'
+                                            key={index}
+                                        >
+                                            {tag}
+                                        </span>
+                                    ))}
                                 </div>
-                                      */}
                             </div>
                             <span className='ml-auto flex items-center gap-2 text-xl font-medium md:ml-0'>
                                 {viewMoreText} <MdArrowOutward />
