@@ -110,7 +110,7 @@ function Geometries() {
     ));
 }
 
-function Geometry({ r, position, geometry, soundEffects, materials }) {
+function Geometry({ position, r, geometry, soundEffects, materials }) {
     const meshRef = useRef();
     const [visible, setVisible] = useState(false);
 
