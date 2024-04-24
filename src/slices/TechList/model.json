@@ -31,7 +31,7 @@
         "color": {
           "type": "Color",
           "config": {
-            "label": "Color",
+            "label": "Tech Color",
             "placeholder": ""
           }
         }

@@ -466,7 +466,7 @@ export interface TechListSliceDefaultItem {
   tech_name: prismic.KeyTextField;
 
   /**
-   * Color field in *TechList → Items*
+   * Tech Color field in *TechList → Items*
    *
    * - **Field Type**: Color
    * - **Placeholder**: *None*
