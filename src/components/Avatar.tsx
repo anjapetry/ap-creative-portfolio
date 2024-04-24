@@ -86,7 +86,7 @@ export default function Avatar({
             className={clsx("relative h-full w-full", className)}
         >
             <div
-                className='avatar aspect-w-1 aspect-h-1 overflow-hidden rounded-3xl border-2 border-stone-500 opacity-0'
+                className='avatar aspect-w-1 aspect-h-1 overflow-hidden rounded-3xl border-2 border-stone-600 opacity-0'
                 style={{ perspective: "500px", perspectiveOrigin: "150% 150%" }}
             >
                 <PrismicNextImage
@@ -94,7 +94,7 @@ export default function Avatar({
                     className='avatar-image h-full w-full object-fill'
                     imgixParams={{ q: 90 }}
                 />
-                <div className='highlight absolute inset-0 hidden w-full scale-110 bg-gradient-to-tr from-transparent via-amber-400 to-transparent opacity-0 md:block'></div>
+                <div className='highlight absolute inset-0 hidden w-full scale-110 bg-gradient-to-tr from-transparent via-stone-300 to-transparent opacity-0 md:block'></div>
             </div>
         </div>
     );

@@ -32,7 +32,7 @@
           "type": "Color",
           "config": {
             "label": "Tech Color",
-            "placeholder": ""
+            "placeholder": "tech_color"
           }
         }
       }

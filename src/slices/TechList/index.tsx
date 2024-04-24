@@ -1,7 +1,17 @@
-import Heading from "@/components/Heading";
+"use client";
+
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
+import { MdCircle } from "react-icons/md";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+import Bounded from "@/components/Bounded";
+import Heading from "@/components/Heading";
+
+gsap.registerPlugin(ScrollTrigger);
+
 /**
  * Props for `TechList`.
  */
@@ -11,28 +21,76 @@ export type TechListProps = SliceComponentProps<Content.TechListSlice>;
  * Component for "TechList" Slices.
  */
 const TechList = ({ slice }: TechListProps): JSX.Element => {
+    const component = useRef(null);
+
+    useLayoutEffect(() => {
+        let ctx = gsap.context(() => {
+            // create as many GSAP animations and/or ScrollTriggers here as you want...
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    markers: true, // removed in production
+                    pin: true, // pin the trigger element while active
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 4,
+                },
+            });
+
+            tl.fromTo(
+                ".tech-row",
+                {
+                    x: (index) => {
+                        return index % 2 === 0
+                            ? gsap.utils.random(600, 400)
+                            : gsap.utils.random(-600, -400);
+                    },
+                },
+                {
+                    x: (index) => {
+                        return index % 2 === 0
+                            ? gsap.utils.random(-600, -400)
+                            : gsap.utils.random(600, 400);
+                    },
+                    ease: "power1.inOut",
+                }
+            );
+        }, component);
+        return () => ctx.revert(); // cleanup!
+    }, []);
+
     return (
         <section
             data-slice-type={slice.slice_type}
             data-slice-variation={slice.variation}
+            className='wrapper overflow-hidden'
+            ref={component}
         >
-            <Heading size='lg' as='h2'>
-                {slice.primary.heading}
-            </Heading>
-            {slice.items.map(({ tech_color, tech_name }, index) => (
-                <div key={index}>
+            <Bounded as='div'>
+                <Heading size='xl' as='h2' className='mb-8'>
+                    {slice.primary.heading}
+                </Heading>
+            </Bounded>
+            {slice.items.map(({ color, tech_name }, index) => (
+                <div
+                    key={index}
+                    className='tech-row mb-8 flex items-center justify-center gap-4 text-stone-600'
+                    aria-label={tech_name || undefined}
+                >
                     {Array.from({ length: 15 }, (_, index) => (
                         <React.Fragment key={index}>
                             <span
-                                className='tech-item text-8xl font-extrabold uppercase tracking-tighter'
+                                className='tech-item text-8xl font-extrabold uppercase tracking-tight'
                                 style={{
                                     color:
-                                        index === 7 && tech_color
-                                            ? tech_color
+                                        index === 7 && color
+                                            ? color
                                             : "inherit",
                                 }}
                             >
                                 {tech_name}
+                            </span>
+                            <span className='text-3sxl'>
+                                <MdCircle />
                             </span>
                         </React.Fragment>
                     ))}

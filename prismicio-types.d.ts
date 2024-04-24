@@ -469,7 +469,7 @@ export interface TechListSliceDefaultItem {
    * Tech Color field in *TechList → Items*
    *
    * - **Field Type**: Color
-   * - **Placeholder**: *None*
+   * - **Placeholder**: tech_color
    * - **API ID Path**: tech_list.items[].color
    * - **Documentation**: https://prismic.io/docs/field#color
    */
