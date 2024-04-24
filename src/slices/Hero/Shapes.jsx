@@ -66,7 +66,7 @@ function Geometries() {
         },
     ];
 
-    const soundEffects: HTMLAudioElement[] = [
+    const soundEffects = [
         new Audio("/sounds/knock1.ogg"),
         new Audio("/sounds/knock2.ogg"),
         new Audio("/sounds/knock3.ogg"),
@@ -120,7 +120,7 @@ function Geometry({ position, r, geometry, soundEffects, materials }) {
         return gsap.utils.random(materials);
     }
 
-    function handleClick(e: any) {
+    function handleClick(e) {
         const mesh = e.object;
 
         gsap.utils.random(soundEffects).play();
