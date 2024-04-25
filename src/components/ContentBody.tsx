@@ -4,6 +4,7 @@ import { Content } from "@prismicio/client";
 import { components } from "@/slices";
 import Heading from "@/components/Heading";
 import Bounded from "@/components/Bounded";
+import { formatDate } from "@/app/utils/formatDate";
 
 export default function ContentBody({
     page,
