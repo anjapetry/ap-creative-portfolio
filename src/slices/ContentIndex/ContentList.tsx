@@ -127,7 +127,7 @@ export default function ContentList({
         });
     });
 
-    // Preload images
+    // Preload images before you hover them
     useEffect(() => {
         contentImages.forEach((url) => {
             if (!url) return;
@@ -152,18 +152,18 @@ export default function ContentList({
                     >
                         <a
                             href={`${urlPrefix}/${post.uid}`}
-                            className='flex flex-col justify-between border-t border-t-slate-100 py-10  text-slate-200 md:flex-row '
+                            className='flex flex-col justify-between border-t border-t-slate-100 py-10  text-slate-200 md:flex-row'
                             aria-label={post.data.title || ""}
                         >
                             <div className='flex flex-col'>
-                                <span className='text-3xl font-bold'>
+                                <span className='text-3xl font-bold mb-6'>
                                     {post.data.title}
                                 </span>
                                 <div className='flex gap-3 text-yellow-400'>
                                     {post.tags.map((tag, index) => (
                                         <span
                                             key={index}
-                                            className='text-lg font-bold'
+                                            className='text-lg font-bold border border-stone-600 rounded-lg py-1 px-2'
                                         >
                                             {tag}
                                         </span>
