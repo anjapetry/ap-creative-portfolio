@@ -61,28 +61,28 @@ export default async function Footer() {
                     </ul>
                 </nav>
                 <div className='socials inline-flex justify-center sm:justify-end'>
-                    {isFilled.link(settings.data.github_link) && (
-                        <PrismicNextLink
-                            field={settings.data.github_link}
-                            className='p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-amber-400'
-                            aria-label={settings.data.name + " on GitHub"}
-                        >
-                            <FaGithub />
-                        </PrismicNextLink>
-                    )}
                     {isFilled.link(settings.data.mastodon_link) && (
                         <PrismicNextLink
                             field={settings.data.mastodon_link}
-                            className='p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-amber-400'
+                            className='p-2 text-2xl text-slate-200 transition-all duration-150 hover:scale-125 hover:text-amber-400'
                             aria-label={settings.data.name + " on Mastodon"}
                         >
                             <TbBrandMastodon />
                         </PrismicNextLink>
                     )}
+                    {isFilled.link(settings.data.github_link) && (
+                        <PrismicNextLink
+                            field={settings.data.github_link}
+                            className='p-2 text-2xl text-slate-200 transition-all duration-150 hover:scale-125 hover:text-amber-400'
+                            aria-label={settings.data.name + " on GitHub"}
+                        >
+                            <FaGithub />
+                        </PrismicNextLink>
+                    )}
                     {isFilled.link(settings.data.linkedin_link) && (
                         <PrismicNextLink
                             field={settings.data.linkedin_link}
-                            className='p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-amber-400'
+                            className='p-2 text-2xl text-slate-200 transition-all duration-150 hover:scale-125 hover:text-amber-400'
                             aria-label={settings.data.name + " on LinkedIn"}
                         >
                             <FaLinkedin />

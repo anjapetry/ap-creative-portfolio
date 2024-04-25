@@ -146,7 +146,11 @@ export default function ContentList({
                 {items.map((post, index) => (
                     <li
                         key={index}
-                        ref={(el) => (itemsRef.current[index] = el)}
+                        ref={(el) => {
+                            if (el) {
+                                itemsRef.current[index] = el;
+                            }
+                        }}
                         onMouseEnter={() => onMouseEnter(index)}
                         className='list-item opacity-0'
                     >
@@ -160,14 +164,16 @@ export default function ContentList({
                                     {post.data.title}
                                 </span>
                                 <div className='flex gap-3 text-yellow-400'>
-                                    {post.tags.map((tag, index) => (
-                                        <span
-                                            key={index}
-                                            className='text-lg font-bold border border-stone-600 rounded-lg py-1 px-2'
-                                        >
-                                            {tag}
-                                        </span>
-                                    ))}
+                                    {post.tags.map(
+                                        (tag: string, index: number) => (
+                                            <span
+                                                key={index}
+                                                className='text-lg font-bold border border-stone-600 rounded-lg py-1 px-2'
+                                            >
+                                                {tag}
+                                            </span>
+                                        )
+                                    )}
                                 </div>
                             </div>
                             <span className='ml-auto flex items-center gap-2 text-xl font-medium md:ml-0'>
