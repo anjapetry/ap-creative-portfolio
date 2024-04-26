@@ -53,7 +53,7 @@
           "placeholder": ""
         }
       },
-      "mastodon": {
+      "mastodon_link": {
         "type": "Link",
         "config": {
           "label": "Mastodon Link",
@@ -62,7 +62,7 @@
           "select": null
         }
       },
-      "linkedin": {
+      "linkedin_link": {
         "type": "Link",
         "config": {
           "label": "LinkedIn Link",
@@ -71,12 +71,20 @@
           "select": null
         }
       },
-      "github": {
+      "github_link": {
         "type": "Link",
         "config": {
           "label": "Github Link",
           "placeholder": "",
           "allowTargetBlank": false,
+          "select": null
+        }
+      },
+      "bluesky_link": {
+        "type": "Link",
+        "config": {
+          "label": "Bluesky",
+          "placeholder": "",
           "select": null
         }
       }

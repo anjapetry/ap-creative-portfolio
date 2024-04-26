@@ -408,33 +408,44 @@ interface SettingsDocumentData {
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.mastodon
+   * - **API ID Path**: settings.mastodon_link
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  mastodon: prismic.LinkField;
+  mastodon_link: prismic.LinkField;
 
   /**
    * LinkedIn Link field in *Settings*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.linkedin
+   * - **API ID Path**: settings.linkedin_link
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  linkedin: prismic.LinkField;
+  linkedin_link: prismic.LinkField;
 
   /**
    * Github Link field in *Settings*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: settings.github
+   * - **API ID Path**: settings.github_link
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  github: prismic.LinkField /**
+  github_link: prismic.LinkField;
+
+  /**
+   * Bluesky field in *Settings*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.bluesky_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  bluesky_link: prismic.LinkField /**
    * Meta Title field in *Settings*
    *
    * - **Field Type**: Text
