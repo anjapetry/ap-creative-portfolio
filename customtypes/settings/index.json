@@ -53,15 +53,6 @@
           "placeholder": ""
         }
       },
-      "mastodon_link": {
-        "type": "Link",
-        "config": {
-          "label": "Mastodon Link",
-          "placeholder": "",
-          "allowTargetBlank": false,
-          "select": null
-        }
-      },
       "linkedin_link": {
         "type": "Link",
         "config": {

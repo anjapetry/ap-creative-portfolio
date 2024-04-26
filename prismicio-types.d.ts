@@ -404,17 +404,6 @@ interface SettingsDocumentData {
   cta_label: prismic.KeyTextField;
 
   /**
-   * Mastodon Link field in *Settings*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: settings.mastodon_link
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  mastodon_link: prismic.LinkField;
-
-  /**
    * LinkedIn Link field in *Settings*
    *
    * - **Field Type**: Link

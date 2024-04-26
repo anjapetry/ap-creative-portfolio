@@ -6,6 +6,7 @@ import Link from "next/link";
 import Bounded from "@/components/Bounded";
 import { isFilled, KeyTextField } from "@prismicio/client";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
+import { TbBrandBluesky } from "react-icons/tb";
 
 export default async function Footer() {
   const client = createClient();
@@ -60,7 +61,7 @@ export default async function Footer() {
           {isFilled.link(settings.data.github_link) && (
             <PrismicNextLink
               field={settings.data.github_link}
-              className="p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-yellow-400"
+              className="p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-amber-400"
               aria-label={settings.data.name + " on GitHub"}
             >
               <FaGithub />
@@ -69,10 +70,19 @@ export default async function Footer() {
           {isFilled.link(settings.data.linkedin_link) && (
             <PrismicNextLink
               field={settings.data.linkedin_link}
-              className="p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-yellow-400"
+              className="p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-amber-400"
               aria-label={settings.data.name + " on LinkedIn"}
             >
               <FaLinkedin />
+            </PrismicNextLink>
+          )}
+          {isFilled.link(settings.data.bluesky_link) && (
+            <PrismicNextLink
+              field={settings.data.bluesky_link}
+              className="p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-amber-400"
+              aria-label={settings.data.name + " on Bluesky"}
+            >
+              <TbBrandBluesky />
             </PrismicNextLink>
           )}
         </div>
