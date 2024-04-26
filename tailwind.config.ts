@@ -10,6 +10,9 @@ const config: Config = {
     theme: {
         extend: {},
     },
-    plugins: [require("@tailwindcss/typography")],
+    plugins: [
+        require("@tailwindcss/typography"),
+        "prettier-plugin-tailwindcss",
+    ],
 };
 export default config;
