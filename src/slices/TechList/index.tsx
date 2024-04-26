@@ -28,7 +28,7 @@ const TechList = ({ slice }: TechListProps): JSX.Element => {
             // create as many GSAP animations and/or ScrollTriggers here as you want...
             const tl = gsap.timeline({
                 scrollTrigger: {
-                    markers: true, // removed in production
+                    // markers: true, // for testing purposes, removed in production
                     pin: true, // pin the trigger element while active
                     start: "top bottom",
                     end: "bottom top",

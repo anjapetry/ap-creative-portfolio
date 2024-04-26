@@ -492,11 +492,11 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
- * Primary content in *Biography → Primary*
+ * Primary content in *About → Primary*
  */
 export interface BiographySliceDefaultPrimary {
   /**
-   * Heading field in *Biography → Primary*
+   * Heading field in *About → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -506,7 +506,7 @@ export interface BiographySliceDefaultPrimary {
   heading: prismic.KeyTextField;
 
   /**
-   * Description field in *Biography → Primary*
+   * Description field in *About → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -516,7 +516,7 @@ export interface BiographySliceDefaultPrimary {
   description: prismic.RichTextField;
 
   /**
-   * Button Text field in *Biography → Primary*
+   * Button Text field in *About → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -526,7 +526,7 @@ export interface BiographySliceDefaultPrimary {
   button_text: prismic.KeyTextField;
 
   /**
-   * Button Link field in *Biography → Primary*
+   * Button Link field in *About → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -536,7 +536,7 @@ export interface BiographySliceDefaultPrimary {
   button_link: prismic.LinkField;
 
   /**
-   * Avatar field in *Biography → Primary*
+   * Avatar field in *About → Primary*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -547,7 +547,7 @@ export interface BiographySliceDefaultPrimary {
 }
 
 /**
- * Default variation for Biography Slice
+ * Default variation for About Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -560,12 +560,12 @@ export type BiographySliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *Biography*
+ * Slice variation for *About*
  */
 type BiographySliceVariation = BiographySliceDefault;
 
 /**
- * Biography Shared Slice
+ * About Shared Slice
  *
  * - **API ID**: `biography`
  * - **Description**: Biography
