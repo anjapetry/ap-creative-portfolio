@@ -4,7 +4,7 @@ import { createClient } from "@/prismicio";
 import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
 import Bounded from "@/components/Bounded";
-import { isFilled, KeyTextField } from "@prismicio/client";
+import { isFilled } from "@prismicio/client";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 import { TbBrandBluesky } from "react-icons/tb";
 
