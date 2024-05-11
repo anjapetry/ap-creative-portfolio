@@ -987,12 +987,12 @@ export interface TextBlockSliceDefaultPrimary {
   /**
    * Button Link field in *TextBlock → Primary*
    *
-   * - **Field Type**: Link to Media
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
    * - **API ID Path**: text_block.primary.button_link
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  button_link: prismic.LinkToMediaField;
+  button_link: prismic.LinkField;
 }
 
 /**
