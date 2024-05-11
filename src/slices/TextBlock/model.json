@@ -29,10 +29,11 @@
           }
         },
         "button_link": {
-          "type": "Text",
+          "type": "Link",
           "config": {
             "label": "Button Link",
-            "placeholder": ""
+            "placeholder": "",
+            "select": "media"
           }
         }
       },
