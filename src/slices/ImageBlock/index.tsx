@@ -15,6 +15,8 @@ const ImageBlock = ({ slice }: ImageBlockProps): JSX.Element => {
         <PrismicNextImage
             field={slice.primary.image}
             className='not-prose w-full h-full rounded-md my-10 md:my-14 lg:my-16 border border-stone-600'
+            quality={100}
+            priority={true}
         />
     );
 };

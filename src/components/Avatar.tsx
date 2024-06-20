@@ -93,6 +93,7 @@ export default function Avatar({
                     field={image}
                     className='avatar-image h-full w-full object-fill'
                     imgixParams={{ q: 90 }}
+                    priority={true}
                 />
                 <div className='highlight absolute inset-0 hidden w-full scale-110 bg-gradient-to-tr from-transparent via-stone-300 to-transparent opacity-0 md:block'></div>
             </div>
