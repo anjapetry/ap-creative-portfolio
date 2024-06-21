@@ -31,7 +31,7 @@ export default function ContentList({
   const [hovering, setHovering] = useState(false);
   const lastMousePos = useRef({ x: 0, y: 0 });
 
-  const urlPrefix = contentType === "Blog" ? "/blog" : "/projects";
+  const urlPrefix = contentType === "Blog" ? "/blog" : "/project";
 
   useEffect(() => {
     // Animate list-items in with a stagger
@@ -51,7 +51,7 @@ export default function ContentList({
             stagger: 0.2,
             scrollTrigger: {
               trigger: item,
-              start: "top bottom-=100px",
+              start: "top bottom -=100px",
               end: "bottom center",
               toggleActions: "play none none none",
             },
@@ -70,12 +70,14 @@ export default function ContentList({
       // Calculate speed and direction
       const speed = Math.sqrt(Math.pow(mousePos.x - lastMousePos.current.x, 2));
 
+      // Check if hovering
       let ctx = gsap.context(() => {
         // Animate the image holder
         if (currentItem !== null) {
           const maxY = window.scrollY + window.innerHeight - 350;
           const maxX = window.innerWidth - 250;
 
+          // Apply the animation to the image holder
           gsap.to(revealRef.current, {
             x: gsap.utils.clamp(0, maxX, mousePos.x - 110),
             y: gsap.utils.clamp(0, maxY, mousePos.y - 160),
@@ -156,11 +158,11 @@ export default function ContentList({
               className="flex flex-col justify-between border-t border-t-slate-100 py-10  text-slate-200 md:flex-row"
               aria-label={post.data.title || ""}
             >
-              <div className="flex flex-col">
+              <div className="flex flex-col md:flex-row">
                 <span className="mb-6 text-3xl font-bold">
                   {post.data.title}
                 </span>
-                <div className="flex gap-3 text-yellow-400">
+                <div className="flex gap-3 text-yellow-400 md:flex-wrap">
                   {post.tags.map((tag: string, index: number) => (
                     <span
                       key={index}
