@@ -158,16 +158,13 @@ export default function ContentList({
               className="flex flex-col justify-between border-t border-t-slate-100 py-10 text-slate-200 md:flex-row"
               aria-label={post.data.title || ""}
             >
-              <div className="flex flex-col md:flex-row">
+              <div className="flex flex-col gap-2">
                 <span className="mb-6 text-3xl font-bold">
                   {post.data.title}
                 </span>
                 <div className="flex gap-3 text-amber-400">
                   {post.tags.map((tag: string, index: number) => (
-                    <span
-                      key={index}
-                      className="rounded-lg border border-stone-600 px-2 py-1 text-lg font-bold"
-                    >
+                    <span key={index} className="text-lg font-bold">
                       {tag}
                     </span>
                   ))}
