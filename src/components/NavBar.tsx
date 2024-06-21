@@ -33,14 +33,14 @@ export default function NavBar({
         </div>
         <div
           className={clsx(
-            "fixed bottom-0 left-0 right-0 top-0 z-50 flex flex-col items-end gap-4 bg-slate-50 pr-4 pt-14 transition-transform duration-300 ease-in-out md:hidden",
+            "fixed bottom-0 left-0 right-0 top-0 z-50 flex flex-col items-end gap-4 bg-[conic-gradient(at_top,_var(--tw-gradient-stops))] from-yellow-400 via-gray-50 to-teal-300 pr-4 pt-14 transition-transform duration-300 ease-in-out md:hidden",
             open ? "translate-x-0" : "translate-x-[100%]",
           )}
         >
           <button
             aria-label="Close menu"
             aria-expanded={open}
-            className="fixed right-4 top-3 block p-2 text-2xl text-slate-800 md:hidden "
+            className="fixed right-4 top-3 block p-2 text-2xl font-bold text-slate-900 md:hidden "
             onClick={() => setOpen(false)}
           >
             <MdClose />
