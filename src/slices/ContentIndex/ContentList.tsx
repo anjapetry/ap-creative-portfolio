@@ -155,14 +155,14 @@ export default function ContentList({
           >
             <a
               href={`${urlPrefix}/${post.uid}`}
-              className="flex flex-col justify-between border-t border-t-slate-100 py-10  text-slate-200 md:flex-row"
+              className="flex flex-col justify-between border-t border-t-slate-100 py-10 text-slate-200 md:flex-row"
               aria-label={post.data.title || ""}
             >
               <div className="flex flex-col md:flex-row">
                 <span className="mb-6 text-3xl font-bold">
                   {post.data.title}
                 </span>
-                <div className="flex gap-3 text-yellow-400 md:flex-wrap">
+                <div className="flex gap-3 text-amber-400">
                   {post.tags.map((tag: string, index: number) => (
                     <span
                       key={index}
