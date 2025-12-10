@@ -35,7 +35,7 @@ export default function ContentList({
 
   useEffect(() => {
     // Animate list-items in with a stagger
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       itemsRef.current.forEach((item, index) => {
         gsap.fromTo(
           item,
@@ -58,9 +58,9 @@ export default function ContentList({
           },
         );
       });
-
-      return () => ctx.revert(); // cleanup!
     }, component);
+
+    return () => ctx.revert();
   }, []);
 
   useEffect(() => {
@@ -70,31 +70,28 @@ export default function ContentList({
       // Calculate speed and direction
       const speed = Math.sqrt(Math.pow(mousePos.x - lastMousePos.current.x, 2));
 
-      // Check if hovering
-      let ctx = gsap.context(() => {
-        // Animate the image holder
-        if (currentItem !== null) {
-          const maxY = window.scrollY + window.innerHeight - 350;
-          const maxX = window.innerWidth - 250;
+      if (currentItem !== null && revealRef.current) {
+        const revealEl = revealRef.current;
+        const maxY = window.scrollY + window.innerHeight - 350;
+        const maxX = window.innerWidth - 250;
 
-          // Apply the animation to the image holder
-          gsap.to(revealRef.current, {
-            x: gsap.utils.clamp(0, maxX, mousePos.x - 110),
-            y: gsap.utils.clamp(0, maxY, mousePos.y - 160),
-            rotation: speed * (mousePos.x > lastMousePos.current.x ? 1 : -1), // Apply rotation based on speed and direction
-            ease: "back.out(2)",
-            duration: 1.3,
-          });
-          gsap.to(revealRef.current, {
-            opacity: hovering ? 1 : 0,
-            visibility: "visible",
-            ease: "power3.out",
-            duration: 0.4,
-          });
-        }
-        lastMousePos.current = mousePos;
-        return () => ctx.revert(); // cleanup!
-      }, component);
+        // Apply the animation to the image holder
+        gsap.to(revealEl, {
+          x: gsap.utils.clamp(0, maxX, mousePos.x - 110),
+          y: gsap.utils.clamp(0, maxY, mousePos.y - 160),
+          rotation: speed * (mousePos.x > lastMousePos.current.x ? 1 : -1),
+          ease: "back.out(2)",
+          duration: 1.3,
+        });
+        gsap.to(revealEl, {
+          opacity: hovering ? 1 : 0,
+          visibility: "visible",
+          ease: "power3.out",
+          duration: 0.4,
+        });
+      }
+
+      lastMousePos.current = mousePos;
     };
 
     window.addEventListener("mousemove", handleMouseMove);
